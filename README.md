@@ -6,7 +6,7 @@ This repository is the codebase of tutorial [Creating a Vue.js Ecommerce Store w
 
 ## Medusa Version
 
-This tutorial uses Medusa v<1.6.0>. It is not guaranteed that it will work with future releases.
+This tutorial uses Medusa v1.6.0. It is not guaranteed that it will work with future releases.
 
 ## Prerequisites
 
@@ -35,6 +35,3 @@ npm install
 npm start
 ```
 
-## Other Resources
-
-_If any other resources in our documentation or other documentations are relevant to the tutorial, add them here._
