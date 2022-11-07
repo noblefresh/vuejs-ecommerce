@@ -11,7 +11,6 @@ This tutorial uses Medusa v<1.6.0>. It is not guaranteed that it will work with 
 ## Prerequisites
 
 - [Node.js at least v14](https://docs.medusajs.com/tutorial/set-up-your-development-environment#nodejs)
-- _Every pre-requisite as a bullet point_
 
 ## How to Install
 
@@ -20,7 +19,7 @@ _You may change these steps per your article._
 1. Clone this repository:
 
 ```bash
-git clone <url>
+git clone <https://github.com/noblefresh/vuejs-ecommerce>
 ```
 
 2. Change directory and install dependencies:
