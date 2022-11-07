@@ -19,13 +19,13 @@ _You may change these steps per your article._
 1. Clone this repository:
 
 ```bash
-git clone <https://github.com/noblefresh/vuejs-ecommerce>
+git clone https://github.com/noblefresh/vuejs-ecommerce
 ```
 
 2. Change directory and install dependencies:
 
 ```bash
-cd <vuejs-ecommerce>
+cd vuejs-ecommerce
 npm install
 ```
 
