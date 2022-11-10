@@ -45,3 +45,17 @@ import FooterComponent from '../components/FooterComponent.vue'
     <footer-component/>
   </main>
 </template>
+
+<script>
+export default {
+  mounted(){
+    this.handlePageScroll()
+  },
+  methods:{
+    handlePageScroll(){
+      window.scrollTo(0, this.scrollposition);
+      this.scrollposition = window.pageYOffset;
+    }
+  }
+}
+</script>

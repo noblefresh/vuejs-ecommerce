@@ -67,6 +67,9 @@ import FooterComponent from '../components/FooterComponent.vue'
 import axios from 'axios'
 
 export default {
+    activated() {
+        window.scrollTo(0, 0);
+    },
     data(){
         return{
             currentImg : 0,
@@ -79,6 +82,9 @@ export default {
             priceList:[],
             currentPrice: ''
         }
+    },
+    mounted(){
+        window.scrollTo(0, 0);
     },
     beforeMount(){
         this.productId = this.$route.params.id
