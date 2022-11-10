@@ -34,7 +34,7 @@ import FooterComponent from '../components/FooterComponent.vue'
                             <div class='font-bold text-md text-black'>Select Size</div>
                             <div class='flex flex-row flex-wrap gap-4'>
                                 <div v-for="(size,i) in sizes" :key="i" class="">
-                                    <div @click="currentSize = size ; currentPrice = priceList[i]" :class="currentSize == size ? 'border-purple-300 bg-purple-100':'border-gray-100' " contenteditable="false" class='border-2 rounded-md cursor-pointer flex justify-center py-3 px-5'>
+                                    <div @click="currentSize = size ; currentPrice = priceList[i] ; variants_id = product.variants[i].id" :class="currentSize == size ? 'border-purple-300 bg-purple-100':'border-gray-100' " contenteditable="false" class='border-2 rounded-md cursor-pointer flex justify-center py-3 px-5'>
                                         <span class=' text-black text-sm'>{{size}}</span>
                                     </div>
                                 </div>
@@ -48,7 +48,7 @@ import FooterComponent from '../components/FooterComponent.vue'
                                 <span class='text-gray-700 text-2xl font-san'>&euro; {{ currentPrice }}</span>
                                 </div>
 
-                                <div @click="addProduct(product)" class='bg-gray-900 cursor-pointer text-white w-full text-sm font-semibold py-3 flex justify-center cursor pointer hover:bg-white hover:border hover:border-gray-900 hover:text-black '>
+                                <div @click="addProduct()" class='bg-gray-900 cursor-pointer text-white w-full text-sm font-semibold py-3 flex justify-center cursor pointer hover:bg-white hover:border hover:border-gray-900 hover:text-black '>
                                     ADD TO CART
                                 </div>
                             </div>
@@ -80,7 +80,8 @@ export default {
             sizes:[],
             currentSize:'S',
             priceList:[],
-            currentPrice: ''
+            currentPrice: '',
+            variants_id: 0
         }
     },
     mounted(){
@@ -96,6 +97,7 @@ export default {
                     this.imgArr.push(data.url)                                    
                 });
                 this.currentPrice = this.product.variants[0].prices[0].amount / 100
+                this.variants_id = this.product.variants[0].id
                 this.product.variants.forEach(data => {
                     this.sizes.push(data.title)                    
                     this.priceList.push(data.prices[0].amount / 100)                    
@@ -103,8 +105,8 @@ export default {
             }).catch(err => console.log(err));
     },
     methods:{
-        addProduct(product){
-            this.$emit('addp',product)
+        addProduct(){
+            this.$emit('addp',this.variants_id)
         }
     }
 }

@@ -25,7 +25,6 @@ export default {
     }
   },
   mounted(){
-    this.getCartID()
     this.checkCartID()
   },
   methods:{
@@ -44,27 +43,20 @@ export default {
     },
     
     addP(data){
-      this.products.push(data)
-      axios.get(`${import.meta.env.VITE_baseUrl}/store/products/${this.products[0].id}`)
-        .then((data) => {
-          this.product_variant_id = data.data.product.variants[0].id;
-          this.cartId = localStorage.cart_id;
-          axios.post(`${import.meta.env.VITE_baseUrl}/store/carts/${this.cartId}/line-items`, {
-            variant_id: this.product_variant_id,
-            quantity: 1,
-          })
-          .then(({ data }) => {
-              localStorage.cart = this.products
-              this.notify = 'right-3'
-              var inter = setInterval(() =>{
-                this.notify='-right-64'
-                clearInterval(inter)
-              },1000)
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-        });
+        this.cartId = localStorage.cart_id;
+        axios.post(`${import.meta.env.VITE_baseUrl}/store/carts/${this.cartId}/line-items`, {
+          variant_id: data,
+          quantity: 1,
+        })
+        .then(({ data }) => {
+            this.products.push(data)
+            localStorage.cart = this.products
+            this.notify = 'right-3'
+            var inter = setInterval(() =>{
+              this.notify='-right-64'
+              clearInterval(inter)
+            },1000)
+        })
     }
   }
 }
