@@ -14,7 +14,7 @@
                         <div class="bg-purple-100 py-8 relative font-bold text-xl w-full flex flex-col justify-center px-6">
                             <div class="">{{ products.title}}</div>
                             <div class="">
-                                &euro; {{ products.variants[0].prices[0].amount }}
+                                &euro; {{ products.variants[0].prices[0].amount / 100 }}
                             </div>
                         </div>
                         </router-link>

@@ -80,7 +80,7 @@ export default {
             currentPrice: ''
         }
     },
-    mounted(){
+    beforeMount(){
         this.productId = this.$route.params.id
         axios.get(`${import.meta.env.VITE_baseUrl}/store/products/${this.productId}`)
         .then((productData) => {
@@ -89,10 +89,10 @@ export default {
                 this.product.images.forEach(data => {
                     this.imgArr.push(data.url)                                    
                 });
-                this.currentPrice = this.product.variants[0].prices[0].amount
+                this.currentPrice = this.product.variants[0].prices[0].amount / 100
                 this.product.variants.forEach(data => {
                     this.sizes.push(data.title)                    
-                    this.priceList.push(data.prices[0].amount)                    
+                    this.priceList.push(data.prices[0].amount / 100)                    
                 });
             }).catch(err => console.log(err));
     },

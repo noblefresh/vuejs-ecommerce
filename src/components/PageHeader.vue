@@ -31,7 +31,7 @@
                         
                     </div>
                     <div class="flex gap-12">
-                        <a href="" class="hidden md:block">
+                        <a href="#" class="hidden md:block">
                             <div class="relative">
                                 <img src="/src/images/icon.png" class="bottom-1 cursor-pointer relative">
                                 <div v-if="productId.length > 0" class="absolute px-1  bg-red-500 -top-1 -right-1 rounded-full border-2 border-white text-white" id="cart" style="font-size: 10px">{{productId.length}}</div>
